@@ -84,6 +84,15 @@ def create_visualizations(df: pd.DataFrame) -> None:
 
     # Visualization 4: Profit by Country
     profit_by_country = px.bar(df, x="Country", y="Profit", color="Country", title="Profit by Country")
-    st.plotly_chart(profit_by_country)
+    st.plotly_chart(profit_by_country) 
+
+    import matplotlib.pyplot as plt
+
+    # Assuming df is your DataFrame and it has columns 'Profit' and 'Order Date'
+    df.plot(x='Order Date', y='Profit', kind='line')
+    plt.title('Profit Trend Over Time')
+    plt.xlabel('Order Date')
+    plt.ylabel('Profit')
+    plt.show()
 
 create_visualizations(df)
